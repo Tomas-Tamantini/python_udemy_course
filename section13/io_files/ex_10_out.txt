@@ -1,2 +1,0 @@
-City with the largest population:
-	- Aparecida de Goiânia - 590146
