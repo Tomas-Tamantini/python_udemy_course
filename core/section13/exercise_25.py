@@ -25,11 +25,8 @@ class ContactList:
     def __init__(self, contacts):
         self.contacts = contacts
 
-    def show_all_contacts(self):
-        if len(self.contacts) == 0:
-            print('No contacts have been saved yet.')
-        else:
-            print('\n'.join(map(lambda c: f'{c[0]}. {str(c[1])}', enumerate(self.contacts))))
+    def all_contacts(self):
+        return list(enumerate(self.contacts))
 
     def insert_contact(self, contact):
         self.contacts.append(contact)
@@ -39,12 +36,14 @@ class ContactList:
             print('Invalid index')
         else:
             del self.contacts[contact_idx]
+            print('Contact deleted successfully')
 
     def search_by_name(self, name):
-        self._search_contact(match_function=lambda contact: contact.name.lower() == name.lower().strip())
+        return self._search_contact(match_function=lambda contact: contact.name.lower() == name.lower().strip())
 
     def search_by_first_letter(self, first_letter):
-        self._search_contact(match_function=lambda contact: contact.name[0].lower() == first_letter.lower().strip())
+        return self._search_contact(
+            match_function=lambda contact: contact.name[0].lower() == first_letter.lower().strip())
 
     def get_birthday_people(self, month=None):
         if month is None:
@@ -53,17 +52,7 @@ class ContactList:
         def match_function(contact):
             return month == contact.birthday.month
 
-        self._search_contact(match_function)
+        return self._search_contact(match_function)
 
     def _search_contact(self, match_function):
-        def filter_lambda(indexed_contact):
-            _, contact = indexed_contact
-            return match_function(contact)
-
-        found_contacts = list(filter(filter_lambda, enumerate(self.contacts)))
-        if len(found_contacts) == 0:
-            print('No contacts found')
-            return
-        print('Contacts found: ')
-        print(
-            '\n'.join(map(lambda indexed_contact: f'{indexed_contact[0]}. {str(indexed_contact[1])}', found_contacts)))
+        return list(filter(lambda indexed_contact: match_function(indexed_contact[1]), enumerate(self.contacts)))
