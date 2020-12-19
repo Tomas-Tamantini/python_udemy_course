@@ -1,5 +1,7 @@
-from core.section13.exercise_7_s13 import replace_vowels
-from core.section13.exercise_10_s13 import biggest_city
+from core.section17.exercise_17_s17 import *
 
-replace_vowels('ex_7')
-biggest_city('ex_10')
+a = Microwave(is_on=False, door_is_open=True)
+a.turn_on()
+a.close_door()
+a.turn_on()
+a.print_state()
