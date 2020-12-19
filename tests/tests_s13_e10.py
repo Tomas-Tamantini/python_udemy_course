@@ -1,6 +1,6 @@
 import unittest
 
-from core.section13.exercise_10 import parse_city
+from core.section13.exercise_10_s13 import parse_city
 
 
 class TestCity(unittest.TestCase):

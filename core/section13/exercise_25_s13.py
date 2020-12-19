@@ -12,6 +12,7 @@ class Contact:
         self.phone_num = phone_num
         self.birthday = birthday
 
+
     def __str__(self):
         b_day = self.birthday.strftime('%d/%m') if self.birthday is not None else ''
         return '; '.join([self.name, self.phone_num, b_day])
