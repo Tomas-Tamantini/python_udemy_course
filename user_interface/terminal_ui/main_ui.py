@@ -1,9 +1,14 @@
 from core.utils.parser_utils import try_parse_int
+from user_interface.terminal_ui.section13 import exercise_7
+from user_interface.terminal_ui.section13 import exercise_10
+from user_interface.terminal_ui.section13 import exercise_25
 
 exercises = {
-    13: (7, 10, 25),
-    16: (4,),
-    17: (17,)
+    13: {7: exercise_7.main_loop,
+         10: exercise_10.main_loop,
+         25: exercise_25.main_loop},
+    16: {4: 4},
+    17: {17: 17}
 }
 
 
@@ -22,7 +27,7 @@ def main_loop():
 
 
 def sub_section_loop(section):
-    available_exercises = exercises[section]
+    available_exercises = tuple(exercises[section].keys())
     exercise = None
     if len(available_exercises) == 1:
         exercise = available_exercises[0]
@@ -37,4 +42,4 @@ def sub_section_loop(section):
         print('Invalid exercise. Try again.')
         sub_section_loop(section)
     else:
-        print('ok')
+        exercises[section][exercise]()

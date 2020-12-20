@@ -15,7 +15,7 @@ def file_exists(file_name):
 
 def get_full_content(file_name, split_by_lines=False):
     if not file_exists(file_name):
-        print(f'Input file {file_name} was not found')
+        print(f'Input file ({file_name}) was not found')
         return
 
     input_path = file_path(file_name)
