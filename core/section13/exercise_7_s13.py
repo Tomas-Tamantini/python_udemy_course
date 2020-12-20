@@ -1,7 +1,7 @@
 # Exercise 7 - Read file, replace vowels with * and save to new file
 import re
 
-from core.file_io_helper_funcs import save_text, get_full_content
+from core.utils.file_io_utils import save_text, get_full_content
 
 
 def replace_vowels(file_name):

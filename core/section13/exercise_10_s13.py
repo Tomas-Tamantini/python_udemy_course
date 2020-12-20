@@ -1,5 +1,5 @@
 # Exercise 10 - Read file of cities w/ population, find largest city and save it to new file
-from core.file_io_helper_funcs import save_text, get_full_content
+from core.utils.file_io_utils import save_text, get_full_content
 
 
 def parse_city(city_str):
