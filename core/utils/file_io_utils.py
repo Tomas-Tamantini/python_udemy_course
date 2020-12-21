@@ -36,8 +36,7 @@ def get_full_content(file_name, split_by_lines=False):
     return list(map(lambda line: str(line, 'utf-8'), text))
 
 
-def save_text(text, file_name, overwrite=False):
+def save_text(text, file_name):
     with open(file_path(file_name), 'w') as file:
         file.write(text)
-
     print(f"File '{file_name}' saved successfully")

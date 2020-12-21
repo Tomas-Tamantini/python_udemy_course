@@ -14,7 +14,7 @@ class Contact:
 
     def __str__(self):
         b_day = self.birthday.strftime('%d/%m') if self.birthday is not None else ''
-        return '; '.join([self.name, self.phone_num, b_day])
+        return ';'.join([self.name, self.phone_num, b_day])
 
 
 class ContactList:
@@ -45,10 +45,7 @@ class ContactList:
         return self._search_contact(
             match_function=lambda contact: contact.name[0].lower() == first_letter.lower().strip())
 
-    def get_birthday_people(self, month=None):
-        if month is None:
-            month = datetime.now().month
-
+    def get_birthday_people(self, month):
         def match_function(contact):
             return month == contact.birthday.month
 
@@ -56,3 +53,6 @@ class ContactList:
 
     def _search_contact(self, match_function):
         return list(filter(lambda indexed_contact: match_function(indexed_contact[1]), enumerate(self.contacts)))
+
+    def __str__(self):
+        return '\n'.join(map(str, self.contacts))
