@@ -30,8 +30,11 @@ class Television:
             self.__channel = 12
 
     def set_channel(self, channel_num):
-        if 3 <= channel_num <= 12:
-            self.__channel = channel_num
+        if channel_num < 3:
+            channel_num = 3
+        elif channel_num > 12:
+            channel_num = 12
+        self.__channel = channel_num
 
     def __str__(self):
         return f'Currently at channel {self.__channel}. The volume is {self.__volume}'
