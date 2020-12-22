@@ -30,4 +30,4 @@ def biggest_city(file_name):
     cities = list(map(parse_city, cities_str))
     biggest = sorted(cities, key=lambda city: city[1], reverse=True)[0]
     new_text = f'City with the largest population:\n\t- {biggest[0]} - {biggest[1]}'
-    save_text(new_text, 'ex_10_out', overwrite=True)
+    save_text(new_text, 'ex_10_out')

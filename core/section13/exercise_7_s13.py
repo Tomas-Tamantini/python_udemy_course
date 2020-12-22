@@ -15,4 +15,4 @@ def replace_vowels(file_name):
         return
 
     new_text = re.sub('[AEIOUaeiou]', '*', original_text)
-    save_text(new_text, 'ex_7_out', overwrite=True)
+    save_text(new_text, 'ex_7_out')

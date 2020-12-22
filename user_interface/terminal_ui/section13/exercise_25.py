@@ -82,8 +82,8 @@ def show_all_contacts(contact_list):
 def add_new_contact(contact_list):
     name = input('Name: ')
     phone_num = input('Phone number: ')
-    bday = input('Birthday (dd/mm): ')
-    contact = parse_contact(';'.join((name, phone_num, bday)))
+    birthday = input('Birthday (dd/mm): ')
+    contact = parse_contact(';'.join((name, phone_num, birthday)))
     if contact is None:
         print('Contact was NOT added. Try again')
         return
